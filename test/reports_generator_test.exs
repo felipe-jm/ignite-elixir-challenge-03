@@ -1,8 +1,8 @@
-defmodule Challenge03Test do
+defmodule ReportsGeneratorTest do
   use ExUnit.Case
-  doctest Challenge03
+  doctest ReportsGenerator
 
   test "greets the world" do
-    assert Challenge03.hello() == :world
+    assert ReportsGenerator.hello() == :world
   end
 end

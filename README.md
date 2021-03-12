@@ -5,7 +5,7 @@
 </h1>
 
 <h4 align="center">
-  A application that reads a csv and extracts information about it
+  A application that reads a csv and extracts how many hours professionals worked per month and year
 </h4>
 
 ## :information_source: How To Use

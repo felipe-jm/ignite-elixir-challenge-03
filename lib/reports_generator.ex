@@ -46,12 +46,12 @@ defmodule ReportsGenerator do
 
   defp sum_hours_by_month(hours_per_month, name, month, hours) do
     current_hours_sum = hours_per_month[name][month]
-    Map.put(hours_per_month, hours_per_month[name][month], current_hours_sum + hours)
+    put_in(hours_per_month, [name, month], current_hours_sum + hours)
   end
 
   defp sum_hours_by_year(hours_per_year, name, year, hours) do
     current_hours_sum = hours_per_year[name][year]
-    Map.put(hours_per_year, hours_per_year[name][year], current_hours_sum + hours)
+    put_in(hours_per_year, [name, year], current_hours_sum + hours)
   end
 
   def report_initial_format() do

@@ -1,6 +1,6 @@
 defmodule ReportsGenerator.Parser do
   def parse_file() do
-    "gen_report.csv"
+    "test.csv"
     |> File.stream!()
     |> Stream.map(fn line -> parse_line(line) end)
   end

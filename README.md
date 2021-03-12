@@ -101,6 +101,39 @@ iex(1)> HoursReport.build_from_many(["report_1", "report_2", "report_3"])
 }
 ```
 
+## :zap: :clock10: Running bechmark
+
+Running the application benchmark located in [test/benchmark.exs](test/benchmark.exs)
+
+```bash
+mix run test/benchmark.exs
+Operating System: Linux
+CPU Information: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
+Number of Available Cores: 8
+Available memory: 15.47 GB
+Elixir 1.11.3
+Erlang 23.2.5
+
+Benchmark suite executing with the following configuration:
+warmup: 2 s
+time: 5 s
+memory time: 0 ns
+parallel: 1
+inputs: none specified
+Estimated total run time: 14 s
+
+Benchmarking parallel...
+Benchmarking single...
+
+Name               ips        average  deviation         median
+parallel          5.56      179.75 ms     ±2.25%      181.00 ms      18
+single            4.93      203.00 ms    ±14.28%      200.45 ms      27
+
+Comparison:
+parallel          5.56
+single            4.93 - 1.13x slower +23.25 ms
+```
+
 ## :heavy_check_mark: Running the tests
 
 ```bash

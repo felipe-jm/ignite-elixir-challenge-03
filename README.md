@@ -16,7 +16,52 @@ iex -S mix
 
 # Then run the function build:
 iex(1)> HoursReport.build("gen_report")
-%{
+%{:ok,
+  "all_hours" => %{
+    "cleiton" => 13797,
+    "daniele" => 13264,
+    "danilo" => 13583,
+    ...
+  },
+  "hours_per_month" => %{
+    "cleiton" => %{
+      "abril" => 1161,
+      "agosto" => 1149,
+      "dezembro" => 1100,
+      ...
+    },
+    "daniele" => %{
+      "abril" => 1138,
+      "agosto" => 1018,
+      "dezembro" => 1019,
+      ...
+    },
+  },
+  "hours_per_year" => %{
+    "cleiton" => %{
+      "2016" => 2699,
+      "2017" => 2684,
+      "2018" => 2805,
+      "2019" => 2714,
+      "2020" => 2895
+    },
+    "daniele" => %{
+      "2016" => 2573,
+      "2017" => 2862,
+      "2018" => 2633,
+      "2019" => 2562,
+      "2020" => 2634
+    },
+  }
+}
+```
+
+Running it in parallel:
+
+```bash
+# This function processes the 3 files in parallel and creates the final report
+iex(1)> HoursReport.build_from_many(["report_1", "report_2", "report_3"])
+%{:ok,
   "all_hours" => %{
     "cleiton" => 13797,
     "daniele" => 13264,
@@ -60,12 +105,12 @@ iex(1)> HoursReport.build("gen_report")
 
 ```bash
 mix test
-......
+.......
 
-Finished in 0.03 seconds
-6 tests, 0 failures
+Finished in 0.4 seconds
+7 tests, 0 failures
 
-Randomized with seed 605182
+Randomized with seed 560684
 ```
 
 ## :memo: License

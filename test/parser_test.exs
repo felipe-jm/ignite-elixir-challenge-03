@@ -1,7 +1,7 @@
-defmodule ReportsGenerator.ParserTest do
+defmodule HoursReport.ParserTest do
   use ExUnit.Case
 
-  alias ReportsGenerator.Parser
+  alias HoursReport.Parser
 
   describe "parse_file" do
     test "parses the file" do
@@ -26,11 +26,20 @@ defmodule ReportsGenerator.ParserTest do
 
   describe "file_professionals_names/1" do
     test "returns a list of names from file" do
-      filename = "reports_test"
+      response = Parser.file_professionals_names()
 
-      response = Parser.file_professionals_names(filename)
-
-      expected_response = %{"daniele" => 0, "giuliano" => 0, "mayk" => 0}
+      expected_response = %{
+        "daniele" => 0,
+        "giuliano" => 0,
+        "mayk" => 0,
+        "cleiton" => 0,
+        "danilo" => 0,
+        "diego" => 0,
+        "jakeliny" => 0,
+        "joseph" => 0,
+        "rafael" => 0,
+        "vinicius" => 0
+      }
 
       assert response == expected_response
     end

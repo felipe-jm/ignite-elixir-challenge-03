@@ -1,4 +1,4 @@
-defmodule ReportsGenerator.Parser do
+defmodule HoursReport.Parser do
   def parse_file(filename) do
     "reports/#{filename}.csv"
     |> File.stream!()
@@ -15,8 +15,8 @@ defmodule ReportsGenerator.Parser do
     |> List.update_at(3, &number_to_month(String.to_integer(&1)))
   end
 
-  def file_professionals_names(filename) do
-    parse_file(filename)
+  def file_professionals_names() do
+    parse_file("gen_report")
     |> Enum.map(fn professional -> String.downcase(hd(professional)) end)
     |> Enum.uniq()
     |> Enum.into(%{}, &{&1, 0})

@@ -15,7 +15,7 @@
 iex -S mix
 
 # Then run the function build:
-iex(1)> ReportsGenerator.build("gen_report")
+iex(1)> HoursReport.build("gen_report")
 %{
   "all_hours" => %{
     "cleiton" => 13797,

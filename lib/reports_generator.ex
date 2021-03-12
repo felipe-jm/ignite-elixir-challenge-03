@@ -24,9 +24,11 @@ defmodule ReportsGenerator do
     "dezembro" => 0
   }
 
-  def build() do
-    Parser.parse_file()
-    |> Enum.reduce(report_initial_format(), fn line, report -> sum_values(line, report) end)
+  def build(filename) do
+    Parser.parse_file(filename)
+    |> Enum.reduce(report_initial_format(filename), fn line, report ->
+      sum_values(line, report)
+    end)
   end
 
   defp sum_values(
@@ -54,8 +56,8 @@ defmodule ReportsGenerator do
     put_in(hours_per_year, [name, year], current_hours_sum + hours)
   end
 
-  def report_initial_format() do
-    professionals = Parser.file_professionals_names()
+  def report_initial_format(filename) do
+    professionals = Parser.file_professionals_names(filename)
     all_hours = Enum.into(%{}, professionals)
     hours_per_month = months_structure(professionals)
     hours_per_year = years_structure(professionals)
